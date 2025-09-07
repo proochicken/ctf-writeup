@@ -637,3 +637,13 @@ if __name__ == "__main__":
 
 ==>THE END
 
+### Do bài này được phân loại là gray-box nên có thể source code không đầy đủ, theo mình đoán thì ở trong database.py gàn ```init_db()``` cần thêm:     
+```python
+cursor.execute("""
+CREATE TABLE flag_table_secret (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    flag_value TEXT NOT NULL
+    )
+""")
+cursor.execute("INSERT INTO flag_table_secret (flag_value) VALUES (?)", ("HOLACTF{SQL_inj3cTi0n_is_3asY}",))
+```
