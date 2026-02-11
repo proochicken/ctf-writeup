@@ -2,7 +2,7 @@
 
 - Đầu tiên ta sử dụng ***pdftotext*** để chuyển pdf về dạng text, ta thấy file pdf này đều là các kí tự S, T, L dạng như sau:
 
-![alt text](image.png)
+![alt text](./image/image.png)
 
 - Mình suy đoán đây là whitespaces language với:
 
@@ -29,13 +29,13 @@ with open("program.ws", "w", encoding="utf-8") as f:
 
 - Sau khi có được file ```program.ws```, ta chạy file .ws đó:
 
-![alt text](image-1.png)
+![alt text](./image/image-1.png)
 
     ○ Ta sẽ nhận được 1 chuỗi hex như trên
 
     ○ Thử decode hex về bytes:
 
-![alt text](image-2.png)
+![alt text](./image/image-2.png)
 
 --> Byte string không đọc được 
 
@@ -45,12 +45,12 @@ with open("program.ws", "w", encoding="utf-8") as f:
 
 Chạy ```pdfdetach -list``` để xem các file được nhúng trong file pdf này:
 
-![alt text](image-3.png)
+![alt text](./image/image-3.png)
 
 --> Ta có 2 file khả nghi, xem thử 2 file này:
 
-![alt text](image-4.png)
+![alt text](./image/image-4.png)
 
 - File thứ 2 *you_cannot_read_this.txt* khá khả nghi, suy đoán nó có thể là encrypt key, ta decode bằng đoạn text này:
 
-![alt text](image-5.png)
+![alt text](./image/image-5.png)
