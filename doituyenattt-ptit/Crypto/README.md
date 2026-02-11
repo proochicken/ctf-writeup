@@ -1,15 +1,15 @@
 # Are u admin?
 - Phân tích ```server.py```:
 
-![alt text](image.png)
+![alt text](./image/image.png)
 
 - Theo source của đề bài thì ta có thể suy đoán được bài này thuộc dạng CBC-bit flipping attack
 
 - Sơ qua về CBC mode:
 
-![alt text](image-1.png)
+![alt text](./image/image-1.png)
 
-![alt text](image-2.png)
+![alt text](./image/image-2.png)
 
 - Ở CBC mode có đặc điểm đó là các blocks không đứng độc lập nhau. Khối đằng sau sẽ phụ thuộc vào khối trước đó
   
@@ -25,7 +25,7 @@
 
     ○ Ta muốn "isAdmin:0" ở block 1 thì ta cần cho INPUT là 16 - 9 = 7 bytes 
 
---> Username cần là "chicken" (7 bytes)
+--> Username cần là *chicken* (7 bytes)
 
 --> Khi đó plaintext sẽ là:
 
@@ -37,7 +37,7 @@
 
     ○ Ta sẽ đổi '0' thành '1' và phép toán cần thực hiện trên byte 9 của Block 0 bằng cách ta sẽ lấy chuỗi Hex mà server trả về sau đó ở byte thứ 9 XOR với 1 rồi send lại cho server.
 
-![alt text](image-3.png)
+![alt text](./image/image-3.png)
 
 
 # There's no randomness
@@ -46,7 +46,7 @@
     
 - Quá trình ký, đoạn mã lại sử dụng "SHA-1" để tạo số ngẫu nhiên k (nonce)
 
-![alt text](image-4.png)
+![alt text](./image/image-4.png)
 
 
 - Đường cong P-256 có bậc của nhóm q = 2256
@@ -67,11 +67,11 @@ Mà ta có 3 cặp giá trị *(r, s)* từ file *output.txt* (hoặc output khi
 
 --> Ta có thể xây dựng 1 hệ phương trình và giải bằng thuật toán LLL (**Lenstra-Lenstra-Lovasz**) với dạng như sau:
 
-![alt text](image-5.png)
+![alt text](./image/image-5.png)
 
 Ta có 3 msg nên ta có được m = 3. Ta có ma trận L kích thước (m+2)x(m+2) như sau:
 
-![alt text](image-6.png)
+![alt text](./image/image-6.png)
 
 - Khi chạy thuật toán LLL trên ma trận, vector ngắn nhất là d mà ta cần tìm (Ở đây ta sử dụng *sagemath* để thuận tiện dùng thuật toán LLL)
 
@@ -145,7 +145,7 @@ Ta tìm được d có giá trị:
 ```13507059083800494186035050605610466411138525977036431739791066456794637672089```
 
 
-![alt text](image-7.png)
+![alt text](./image/image-7.png)
 
 - Sau khi có d, ta tính ngược lại điểm Q, mà ta có 
 
@@ -153,5 +153,5 @@ Ta tìm được d có giá trị:
 
 Ta nhận được flag:
 
-![alt text](image-8.png)
+![alt text](./image/image-8.png)
 
